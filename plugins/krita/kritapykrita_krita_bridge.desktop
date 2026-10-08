@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=krita_bridge
+X-Python-2-Compatible=false
+X-Krita-Manual=Manual.html
+Name=Krita AI Bridge
+Comment=Puente de comunicacion local entre Krita y agentes de IA (Antigravity y OpenCode)

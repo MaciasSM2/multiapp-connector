@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "multiapp-connector": {
+      "type": "local",
+      "command": [
+        "c:\\Users\\Sebastian Macias\\Documents\\0. Programacion\\Conector de aplicativos\\.venv\\Scripts\\python.exe",
+        "c:\\Users\\Sebastian Macias\\Documents\\0. Programacion\\Conector de aplicativos\\server.py"
+      ]
+    }
+  }
+}
