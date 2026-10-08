@@ -1,5 +1,10 @@
 # Conector de Aplicativos Multimedia (ChamVa ↔ Krita ↔ Canva) 🚀
 
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/MaciasSM2/multiapp-connector)
+[![Tests](https://img.shields.io/badge/tests-14%2F14%20passed%20(100%25)-brightgreen.svg)](https://github.com/MaciasSM2/multiapp-connector)
+[![Protocol](https://img.shields.io/badge/protocol-MCP%202.x-orange.svg)](https://modelcontextprotocol.io/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/MaciasSM2/multiapp-connector)
+
 Puente de interoperabilidad que permite a agentes de Inteligencia Artificial (**Antigravity**, **OpenCode**) controlar de forma directa y programática software de edición instalado localmente:
 
 - **ChamVa**: Edición de video, máscaras ("Quitar fondo"), recortes y procesamiento FFmpeg de alta velocidad (Tauri 2 / WebView2).
@@ -47,6 +52,9 @@ Conector de aplicativos/
 ├── output/                     # Capturas de pantalla, renders y exportaciones
 ├── cli.py                      # Herramienta de línea de comandos para control directo
 ├── demo_live_workflow.py       # Script de demostración integral validado
+├── tests/
+│   ├── test_all.py             # Pruebas unitarias básicas
+│   └── test_verification_suite.py # Auditoría técnica de 14 puntos (100% aprobado)
 ├── opencode_mcp.json           # Configuración lista para OpenCode
 ├── config.py                   # Rutas y constantes del sistema
 ├── server.py                   # Servidor central MCP con 23 herramientas
@@ -108,6 +116,24 @@ Conector de aplicativos/
 
 ---
 
+## 🧪 Auditoría y Batería de Pruebas (14/14 Aprobado)
+
+El proyecto incluye un runner de verificación técnica exhaustiva en `tests/test_verification_suite.py`:
+
+```powershell
+.\.venv\Scripts\python tests\test_verification_suite.py
+```
+
+Resultados de la auditoría:
+
+- **ChamVa (Binarios, FFmpeg, CDP, Lienzo, Texto, Screenshot)**: 6/6 PASS
+- **Krita (Binario, PyKrita, Sintaxis Qt)**: 3/3 PASS
+- **Pipelines (Video sintético, Recorte stream-copy, Extracción de frame)**: 3/3 PASS
+- **Servidor MCP (Catálogo de herramientas, Diagnóstico)**: 2/2 PASS
+- **Total**: **14/14 superadas con éxito (100%)**.
+
+---
+
 ## 🔌 Configuración en Antigravity y OpenCode
 
 ### En Google Antigravity
@@ -130,7 +156,7 @@ El servidor ya se encuentra automáticamente registrado en tu configuración glo
 
 ### En OpenCode
 
-Usa el archivo [opencode_mcp.json](opencode_mcp.json) ya creado en el proyecto:
+Usa el archivo [opencode_mcp.json](opencode_mcp.json) ya configurado en el proyecto:
 
 ```json
 {
@@ -183,6 +209,16 @@ También puedes controlar las herramientas directamente desde la consola con [cl
 Captura real tomada por el agente durante la automatización de creación de proyecto y diseño en ChamVa:
 
 ![Demostración en ChamVa](output/demo_chamva_final.png)
+
+---
+
+## 📝 Notas de la Versión (v1.1.0)
+
+- **Auditoría Técnica Completa**: Suite de pruebas con 14 verificaciones automatizadas superadas al 100%.
+- **Soporte de Aceleración por Hardware**: Uso del codificador nativo `h264_mf` (Windows MediaFoundation) para procesamiento multimedia en ChamVa FFmpeg sin dependencias de terceros.
+- **Tolerancia a Superposiciones**: Manejo automático de modales y cierres de `.home-overlay` en la interfaz de ChamVa.
+- **Limpieza de Bloqueos en Krita**: Detección y eliminación automática de archivos huérfanos `qtsingleapp-lockfile`.
+- **Compatibilidad Ampliada**: Soporte directo y validado para **Antigravity IDE** y **OpenCode**.
 
 ---
 

@@ -21,4 +21,4 @@ KRITA_PORT = 52150
 
 # Server settings
 SERVER_NAME = "multiapp-connector"
-SERVER_VERSION = "1.0.0"
+SERVER_VERSION = "1.1.0"
